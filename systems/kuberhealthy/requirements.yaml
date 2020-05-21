@@ -1,0 +1,5 @@
+dependencies:
+- condition: kuberhealthy.enabled
+  name: kuberhealthy
+  repository: https://comcast.github.io/kuberhealthy/helm-repos
+  version: 2.1.0

@@ -208,6 +208,18 @@ pipelineConfig:
               value: falco
           - args:
             - step
+            - helm
+            - apply
+            - --boot
+            - --remote
+            - --no-vault
+            - --name
+            - kuberhealthy
+            command: jx
+            dir: /workspace/source/systems/kuberhealthy
+            name: install-kuberhealthy
+          - args:
+            - step
             - boot
             - vault
             - --provider-values-dir
