@@ -14,10 +14,6 @@ falco:
     env:
       - name: FALCO_BPF_PROBE
         value: "/root/.falco/falco-probe-bpf.o"
-      #- name: BPF_PROBE
-       # value:
-      #- name: SYSDIG_BPF_PROBE
-       # value: "/root/.falco/falco-probe-bpf.o"
     podAnnotations:
       ad.datadoghq.com/falco.logs: "[{\"source\": \"falco\"}]"
     
