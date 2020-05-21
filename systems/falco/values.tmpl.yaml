@@ -1,24 +1,25 @@
-image:
-  tag: 0.23.0
-
-podSecurityPolicy:
-  # Create a podSecurityPolicy
-  create: true
-
-ebpf:
-  # Enable eBPF support for Falco
-  enabled: true
-
-daemonset:
-  env:
-    - name: FALCO_BPF_PROBE
-      value: "/root/.falco/falco-probe-bpf.o"
-    #- name: BPF_PROBE
-     # value:
-    #- name: SYSDIG_BPF_PROBE
-     # value: "/root/.falco/falco-probe-bpf.o"
-  podAnnotations:
-    ad.datadoghq.com/falco.logs: "[{\"source\": \"falco\"}]"
-    
 falco:
-  jsonOutput: true
+  image:
+    tag: 0.23.0
+
+  podSecurityPolicy:
+    # Create a podSecurityPolicy
+    create: true
+
+  ebpf:
+    # Enable eBPF support for Falco
+    enabled: true
+
+  daemonset:
+    env:
+      - name: FALCO_BPF_PROBE
+        value: "/root/.falco/falco-probe-bpf.o"
+      #- name: BPF_PROBE
+       # value:
+      #- name: SYSDIG_BPF_PROBE
+       # value: "/root/.falco/falco-probe-bpf.o"
+    podAnnotations:
+      ad.datadoghq.com/falco.logs: "[{\"source\": \"falco\"}]"
+    
+  falco:
+    jsonOutput: true
