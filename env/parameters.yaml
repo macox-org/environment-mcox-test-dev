@@ -1,0 +1,10 @@
+adminUser:
+  password: vault:mcox-test/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: 79coxm@gmail.com
+  token: vault:mcox-test/pipelineUser:token
+  username: macox-bot
+prow:
+  hmacToken: vault:mcox-test/prow:hmacToken

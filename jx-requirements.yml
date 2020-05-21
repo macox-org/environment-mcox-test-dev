@@ -1,35 +1,90 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-config.git
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
+  clusterName: mcox-test
+  devEnvApprovers:
+  - macox
+  environmentGitOwner: macox-org
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: jx-development
   provider: gke
-  zone: ""
-gitops: true
+  registry: gcr.io
+  vaultName: mcox-test
+  vaultSAName: mcox-test-vt
+  zone: us-central1-a
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: 34.71.140.0.nip.io
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: true
+  key: dev
+  repository: environment-mcox-test-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-mcox-test-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-mcox-test-production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.71.140.0.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
-    production: false
+    production: true
 kaniko: true
-secretStorage: local
+repository: nexus
+secretStorage: vault
 storage:
+  backup:
+    enabled: true
+    url: gs://backup-mcox-test-e9c373ff2897
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://logs-mcox-test-e9c373ff2897
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://reports-mcox-test-e9c373ff2897
   repository:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://repository-mcox-test-e9c373ff2897
+vault:
+  bucket: vault-mcox-test-e9c373ff2897
+  key: crypto-key-mcox-test-e9c373ff2897
+  keyring: keyring-mcox-test-e9c373ff2897
+  name: mcox-test
+  serviceAccount: mcox-test-vt
+velero:
+  namespace: velero
+  schedule: 0 * * * *
+  serviceAccount: mcox-test-vo
+  ttl: 720h0m0s
 versionStream:
-  ref: "master"
+  ref: v1.0.468
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: lighthouse
