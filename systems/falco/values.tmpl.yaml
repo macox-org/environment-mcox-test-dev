@@ -1,3 +1,6 @@
+image:
+  tag: 0.23.0
+
 podSecurityPolicy:
   # Create a podSecurityPolicy
   create: true
