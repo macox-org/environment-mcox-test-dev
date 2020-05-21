@@ -193,6 +193,21 @@ pipelineConfig:
             name: install-acme-issuer-and-certificate
           - args:
             - step
+            - helm
+            - apply
+            - --boot
+            - --remote
+            - --no-vault
+            - --name
+            - falco
+            command: jx
+            dir: /workspace/source/systems/falco
+            name: install-falco
+            env:
+            - name: DEPLOY_NAMESPACE
+              value: falco
+          - args:
+            - step
             - boot
             - vault
             - --provider-values-dir
