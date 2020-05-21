@@ -9,9 +9,9 @@ ebpf:
   # Enable eBPF support for Falco
   enabled: true
 
-#daemonset:
-#  env:
-#    - name: BPF_PROBE
-#      value:
-#    - name: SYSDIG_BPF_PROBE
-#      value: "/root/.falco/falco-probe-bpf.o"
+daemonset:
+  env:
+    - name: BPF_PROBE
+      value:
+    - name: SYSDIG_BPF_PROBE
+      value: "/root/.falco/falco-probe-bpf.o"
