@@ -19,3 +19,8 @@ falco:
     
   falco:
     jsonOutput: true
+    
+    rulesFile:
+      - /etc/falco/my-rules.yaml
+    
+    
