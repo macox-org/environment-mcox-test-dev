@@ -21,6 +21,6 @@ falco:
     jsonOutput: true
     
 customRules:
-  - my-rules.yaml
+  my-rules.yaml: |-
     
     
