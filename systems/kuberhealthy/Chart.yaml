@@ -1,6 +1,0 @@
-apiVersion: v1
-description: Kuberhealthy
-maintainers:
-- name: Team
-name: kuberhealthy
-version: "2"
