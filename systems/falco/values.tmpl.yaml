@@ -21,7 +21,7 @@ falco:
     jsonOutput: true
     
   customRules:
-    my-rules.yaml: |-
+    my_rules.yaml: |-
       - rule: shell_in_container
       desc: notice shell activity within a container
       condition: container.id != host and proc.name = bash
