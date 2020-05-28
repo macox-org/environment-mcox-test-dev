@@ -18,6 +18,7 @@ falco:
     jsonOutput: true
     
     rulesFile:
+      - /aaaaa/lovely_rules.yaml
       - /etc/falco/falco_rules.yaml
       - /etc/falco/falco_rules.local.yaml
       - /etc/falco/k8s_audit_rules.yaml
