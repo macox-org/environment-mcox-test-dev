@@ -16,11 +16,11 @@ falco:
     
   falco:
     jsonOutput: true
-    
-    rulesFile:
-      - /aaaaa/lovely_rules.yaml
-      - /etc/falco/falco_rules.yaml
-      - /etc/falco/falco_rules.local.yaml
-      - /etc/falco/k8s_audit_rules.yaml
-      - /etc/falco/rules.d
-      - /etc/falco/lovely_rules.yaml
+
+  customRules:
+    new_rules: |-
+      - rule: shell_in_container
+        desc: notice shell activity within a container
+        condition: evt.type=open and container.id != host and proc.name = bash
+        output: shell in a container (user=%user.name container_id=%container.id container_name=%container.name shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline)
+        priority: WARNING
