@@ -19,7 +19,7 @@ falco:
 
   customRules:
     new_rules: |-
-      - rule: shell_in_container
+      - rule: shell_in_container_john
         desc: notice shell activity within a container
         condition: evt.type=open and container.id != host and proc.name = bash
         output: shell in a container (user=%user.name container_id=%container.id container_name=%container.name shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline)
