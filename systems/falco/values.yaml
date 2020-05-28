@@ -4,7 +4,7 @@ falco:
 
   podSecurityPolicy:
     # Create a podSecurityPolicy
-    create: true
+    create: false
 
   ebpf:
     # Enable eBPF support for Falco
