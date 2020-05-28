@@ -27,5 +27,5 @@ falco:
         condition: evt.type=open and container.id != host and proc.name = bash
         output: QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
         priority: WARNING
-    
-    
+      - rule: Terminal shell in container  
+        priority: WARNING
