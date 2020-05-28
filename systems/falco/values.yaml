@@ -8,7 +8,7 @@ falco:
 
   ebpf:
     # Enable eBPF support for Falco
-    enabled: false
+    enabled: true
 
   daemonset:
     podAnnotations:
@@ -24,17 +24,3 @@ falco:
       - /etc/falco/k8s_audit_rules.yaml
       - /etc/falco/rules.d
       - /etc/falco/lovely_rules.yaml
-    
-  customRules:
-    my_rules: |-
-      - rule: Terminal shell in John
-        desc: A shell was used as the entrypoint/exec point into a container with an attached terminal.
-        condition: >
-          spawned_process and container
-          and shell_procs and proc.tty != 0
-          and container_entrypoint
-        output: >
-          A shell was spawned in a container with an John attached terminal (user=%user.name %container.info
-          shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline terminal=%proc.tty container_id=%container.id image=%container.image.repository)
-        priority: CRITICAL
-        tags: [container, shell, mitre_execution]
