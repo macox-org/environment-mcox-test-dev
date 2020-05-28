@@ -11,14 +11,18 @@ falco:
     enabled: true
 
   daemonset:
- #   env:
- #     - name: FALCO_BPF_PROBE
- #       value: "/root/.falco/falco-probe-bpf.o"
     podAnnotations:
       ad.datadoghq.com/falco.logs: "[{\"source\": \"falco\"}]"
     
   falco:
     jsonOutput: true
+    
+    rulesFile:
+      - /etc/falco/falco_rules.yaml
+      - /etc/falco/falco_rules.local.yaml
+      - /etc/falco/k8s_audit_rules.yaml
+      - /etc/falco/rules.d
+      - /etc/falco/lovely_rules.yaml
     
   customRules:
     my_rules: |-
