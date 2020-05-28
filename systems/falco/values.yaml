@@ -22,11 +22,6 @@ falco:
     
   customRules:
     my_rules: |-
-      - rule: shell_in_container
-        desc: notice shell activity within a container
-        condition: evt.type=open and container.id != host and proc.name = bash
-        output: QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
-        priority: WARNING
       - rule: Terminal shell in John
         desc: A shell was used as the entrypoint/exec point into a container with an attached terminal.
         condition: >
