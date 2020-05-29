@@ -16,8 +16,3 @@ falco:
     
   falco:
     jsonOutput: true
-    
-  customRules:
-    new_rules: |-
-      - rule: Terminal shell in container       
-        priority: CRITICAL 
